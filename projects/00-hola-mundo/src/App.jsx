@@ -1,26 +1,49 @@
 import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 import './App.css'
+import { useState } from 'react'
 
-
+const users = [
+{
+    userName: 'midudev',
+    name:"Miguel Angel Duran",
+    isFollowing: true
+},
+{
+    userName: 'pheral',
+    name:"Pablo H",
+    isFollowing: false
+},
+{
+    userName: 'pacoHdez',
+    name:"Paco hdez",
+    isFollowing: true
+},
+{
+    userName: 'TMChein',
+    name:"Tomas",
+    isFollowing: false
+}
+]
 
 
 export function App(){
 
-    const format = (userName)=>`@${userName}`
-
+    const [isFollowing, setIsFollowing] = useState(true)
+   
     return (
         <section className='App'>
-        <TwitterFollowCard 
-        formatUserName={format} userName="midudev"  
-        isFollowing={false} >
-            <h1>Miguel Angel Duran</h1>
-        </TwitterFollowCard>
-        
-        <TwitterFollowCard 
-        formatUserName={format} userName="abG" 
-        name="Abel Granados Leani Vera" 
-        isFollowing />
-          </section>
+        {
+            users.map(({ userName, name, isFollowing })=>
+                <TwitterFollowCard
+                key={userName}
+                userName={userName}
+                name={name}
+                initialIsFollowing={isFollowing}
+                />
+            )
+        }
+            
+        </section>
     )
 
 }

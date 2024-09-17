@@ -35,4 +35,21 @@
     padding: 6px 16px;
     font-weight: 900;
     flex-direction: row;
+    cursor: pointer;
+    transition: .3s ease background-color;
 }
+
+.tw-follow-card__follow-button--is-following {
+    border: 1px solid red;
+}
+
+
+.tw-follow-card__follow-button:hover {
+    background-color: #09f;
+}
+
+
+.tw-follow-card__follow-button--is-following:hover {
+    background-color: red;
+}
+
